@@ -1,52 +1,52 @@
 <div class="py-5 px-[3%]">
-    <h2 class="text-3xl font-semibold text-[#363636]">Dự án Só 1 (#23243)</h2>
+    <h2 class="text-3xl font-semibold text-[#363636]">{{project.name}} (#{{project.id}})</h2>
+
     <div>
         <div class="flex gap-2 items-center">
-            <span class="text-[#333] font-semibold">Team leader:</span>
-            <span class="text-blue-600 font-semibold">Phạm Văn Hoàng</span>
+            <span class="text-[#333] font-semibold">Nhóm trưởng:</span>
+            <span class="text-blue-600 font-semibold">{{teamleader.name}}</span>
         </div>
     </div>
     <div class="grid-cols-3 gap-4 grid py-4">
-        <div class="border-[1.2px] rounded-lg p-4 col-span-2">
-            
-            <div>
-                <span class="text-lg font-semibold">Thời gian bắt đầu</span>
-                <span class="text-[#777]">12/12/12</span>
+        <div class="col-span-2">
+            <div class="w-full rounded-xl overflow-hidden">
+                <img class="w-full h-full object-cover" src="{{project.imageUrl}}" alt="">
             </div>
-            <div>
-                <span class="text-lg font-semibold">Thời gian kết thúc</span>
-                <span class="text-[#777]">12/12/12</span>
+            <div class="flex gap-[4px] justify-between items-center py-4">
+                <div>
+                    <span class="text-lg font-semibold block">Thời gian bắt đầu</span>
+                    <span class="text-blue-500 font-extrabold text-lg">{{project.dayStart | date:'dd/MM/Y'}}</span>
+                </div>
+                <div class="text-right">
+                    <span class="text-lg font-semibold block">Tổng chi phí dự án</span>
+                    <span class="text-red-600 font-extrabold text-lg">{{project.cost | currency:'VND':'đ':'1.0-0':'vi'}}</span>
+                </div>
             </div>
-            <div>
+            <!-- <div>
                 <span class="text-lg font-semibold">Trạng thái</span>
-                <span class="text-[#777]">Đang thực hiện</span>
-            </div>
+                <span class="text-[#777]">{{project.status}}</span>
+            </div> -->
             <div>
                 <span class="text-lg font-semibold">Mô tả</span>
-                <p class="text-[#777]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aut optio fugit deleniti, provident quo perferendis libero quibusdam necessitatibus nemo temporibus exercitationem veniam porro voluptatem omnis nam quos facilis quaerat sit est illo distinctio alias ut. Animi aspernatur deserunt vero unde error facere sequi, temporibus perspiciatis quam minus neque, eaque consectetur molestiae earum eum!</p>
+                <p class="text-[#777]">{{project.description}}</p>
             </div>
         </div>
-        <div class="border-[1.2px] rounded-lg p-4">
-            <span class="text-lg font-semibold">Thành viên trong dự án</span>
-            <div class="flex flex-col gap-2 py-3">
-                <div>
-                    <span class="text-[#363636] font-semibold">Phạm Văn Hoàng</span>
-                </div>
-                <div>
-                    <span class="text-[#363636] font-semibold">Phạm Văn Hoàng</span>
-                </div>
-                <div>
-                    <span class="text-[#363636] font-semibold">Phạm Văn Hoàng</span>
+        <div class="border-[1.2px] rounded-lg text-center h-fit px-4">
+            <span class="text-lg font-semibold pt-2 pb-2 mb-2 border-b block">Thành viên trong dự án</span>
+            <div *ngFor="let member of listMembers" class="flex flex-col">
+                <div class="flex justify-between items-center py-[5px]">
+                    <span class="text-[#363636] font-semibold">{{member.name}} <p class="inline-block font-normal">({{member.position}})</p></span>
+                    <span routerLink="/nhan-vien/{{member.id}}" class="hover:text-blue-500 cursor-pointer font-semibold">Xem chi tiết</span>
                 </div>
             </div>
-            <div>
+            <!-- <div>
                 <button class="group py-[10px] flex items-center gap-[4px] px-3 border-[1.2px] text-[#363636] hover:bg-[#001b13] rounded-md font-medium leading-none hover:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#363636" class="w-5 h-5 group-hover:stroke-[#fff]">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
                     <span>Thêm thành viên</span>                      
                 </button>
-            </div>
+            </div> -->
         </div>
 
         <div>

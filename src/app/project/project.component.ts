@@ -16,8 +16,15 @@ export class ProjectComponent {
   ngOnInit():void {
     this.projectService.getProjects().then(data => {
       this.listProjects = data;
+      this.listProjects.forEach(project => {
+        this.projectService.getLeaderOfProject(project.id).then(leaderData => {
+          project.leader = leaderData.name;
+        }).catch(error => {
+          console.error('Error fetching leader:', error);
+        });
+      });
     }).catch(error => {
-      console.error('Error fetching products:', error);
+      console.error('Error fetching projects:', error);
     });
   }
   

@@ -15,6 +15,16 @@ export class EmployeeService {
     }
   }
 
+  // get detail
+  async getEmployee(id:number): Promise<any> {
+    try {
+      const response = await fetch(this.apiUrl+`/`+id);
+      return await response.json();
+    } catch (error) {
+      return console.error('Error fetching products:', error);
+    }
+  }
+
 
   async addProject(project: any): Promise<any> {
     try {

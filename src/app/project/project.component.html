@@ -6,9 +6,9 @@
             <p class="line-clamp-2 text-[#777] mb-3">{{project.description}}</p>
             <div class="flex justify-between items-center py-2">
                 <div>
-                    <span class="font-semibold">Phạm Văn Hoàng</span>
+                    <span class="font-semibold">{{project.leader}}</span>
                 </div>
-                <span>12/12/12</span>
+                <span>{{project.dayStart | date:'dd/MM/Y'}}</span>
             </div>
         </div>
     </div>
