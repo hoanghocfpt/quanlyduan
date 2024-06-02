@@ -6,5 +6,6 @@ export interface Project {
     cost: number;
     dayStart: string;
     leader: number;
-    members?: number[];
+    leader_name?: string;
+
 }

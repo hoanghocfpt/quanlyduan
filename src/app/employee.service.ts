@@ -1,69 +1,47 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Employee } from './employee';
+import { Project } from './project';
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  private apiUrl = 'http://localhost:3000/nhan_vien';
-
-  async getEmployees(): Promise<any> {
-    try {
-      const response = await fetch(this.apiUrl);
-      return await response.json();
-    } catch (error) {
-      return console.error('Error fetching products:', error);
-    }
+  constructor(private http: HttpClient) { }
+  private apiUrlEmployee = 'http://localhost:3000/nhan_vien';
+  private apiUrlProject = 'http://localhost:3000/du_an';
+  private apiUrlTask = 'http://localhost:3000/task';
+  getEmployees(): Observable<Employee[]>{
+    return this.http.get<Employee[]>(this.apiUrlEmployee);
   }
 
+  
   // get detail
-  async getEmployee(id:number): Promise<any> {
-    try {
-      const response = await fetch(this.apiUrl+`/`+id);
-      return await response.json();
-    } catch (error) {
-      return console.error('Error fetching products:', error);
-    }
+  getEmployeeById(id: any):Observable<Employee> {
+    return this.http.get<Employee>(`${this.apiUrlEmployee}/${id}`);
   }
 
-
-  async addProject(project: any): Promise<any> {
-    try {
-      const response = await fetch(this.apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(project)
-      });
-      return await response.json();
-    } catch (error) {
-      return console.error('Error adding project:', error);
-    }
+  // get projects of employee
+  getProjectsOfEmployee(id: any):Observable<Project[]> {
+    return this.http.get<Project[]>(`${this.apiUrlProject}/nhan_vien/${id}`);
   }
 
-  async updateProject(id: number, project: any): Promise<any> {
-    try {
-      const response = await fetch(`${this.apiUrl}/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(project)
-      });
-      return await response.json();
-    } catch (error) {
-      return console.error('Error updating project:', error);
-    }
+  // get tasks of employee
+  getTasksOfEmployee(id: any):Observable<any> {
+    return this.http.get<any>(`${this.apiUrlTask}/nhan_vien/${id}`);
   }
 
-  async deleteProject(id: number): Promise<any> {
-    try {
-      const response = await fetch(`${this.apiUrl}/${id}`, {
-        method: 'DELETE'
-      });
-      return await response.json();
-    } catch (error) {
-      return console.error('Error deleting project:', error);
-    }
+  // add employee
+  addEmployee(employee: any) {
+    return this.http.post(this.apiUrlEmployee, employee);
+  }
+
+  // update employee
+  updateEmployee(employee: any) {
+    return this.http.put(`${this.apiUrlEmployee}/${employee.id}`, employee);
+  }
+  // delete employee
+  deleteEmployee(id: any) {
+    return this.http.delete(`${this.apiUrlEmployee}/${id}`);
   }
 }

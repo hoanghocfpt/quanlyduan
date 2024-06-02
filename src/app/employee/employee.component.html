@@ -1,48 +1,44 @@
 <div class="py-5 px-[3%]">
     <h2 class="text-3xl font-semibold text-[#363636]">Nhân viên</h2>
     <div class="grid grid-cols-4 gap-5 py-3">
-        <div class="bg-[#f5f1ff] rounded-lg py-4 px-3 gap-3 flex items-center shadow-md shadow-gray-100">
-            <div class="bg-white py-5 w-10 h-8 flex justify-center items-center">
+        <div class="rounded-lg py-4 px-3 gap-3 flex items-center shadow-md">
+            <div class="py-5 w-10 h-8 flex justify-center items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
                 </svg>
             </div>
             <div class="flex flex-col">
                 <span class="font-semibold text-[#363636] text-lg">Tổng nhân viên</span>
-                <span class="text-lg">{{listEmployees.length}}</span>
+                <span class="text-lg">{{searchEmployee.length}}</span>
             </div>
         </div>
-        <div class="bg-[#f5f1ff] rounded-lg py-4 px-3 gap-3 flex items-center shadow-md shadow-gray-100">
-            <div class="bg-white py-5 w-10 h-8 flex justify-center items-center">
+        <div class="rounded-lg py-4 px-3 gap-3 flex items-center shadow-md">
+            <div class="py-5 w-10 h-8 flex justify-center items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
-                </svg>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>                  
             </div>
             <div class="flex flex-col">
-                <span class="font-semibold text-[#363636] text-lg">Tổng nhân viên</span>
-                <span class="text-lg">100</span>
+                <span class="font-semibold text-[#363636] text-lg">Leader</span>
+                <span class="text-lg">{{totalLeader}}</span>
             </div>
         </div>
-        <div class="bg-[#f5f1ff] rounded-lg py-4 px-3 gap-3 flex items-center shadow-md shadow-gray-100">
-            <div class="bg-white py-5 w-10 h-8 flex justify-center items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
-                </svg>
+        <div class="rounded-lg py-4 px-3 gap-3 flex items-center shadow-md">
+            <div class="py-5 w-10 h-8 flex justify-center items-center">
+                <svg _ngcontent-ng-c598500468="" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-10"><g _ngcontent-ng-c598500468="" stroke-width="0"></g><g _ngcontent-ng-c598500468="" stroke-linecap="round" stroke-linejoin="round"></g><g _ngcontent-ng-c598500468="" id="SVGRepo_iconCarrier"><path _ngcontent-ng-c598500468="" fill-rule="evenodd" clip-rule="evenodd" d="M15.5631 16.1199C14.871 16.81 13.9885 17.2774 13.0288 17.462C12.0617 17.6492 11.0607 17.5459 10.1523 17.165C8.29113 16.3858 7.07347 14.5723 7.05656 12.5547C7.04683 11.0715 7.70821 9.66348 8.8559 8.72397C10.0036 7.78445 11.5145 7.4142 12.9666 7.71668C13.9237 7.9338 14.7953 8.42902 15.4718 9.14008C16.4206 10.0503 16.9696 11.2996 16.9985 12.6141C17.008 13.9276 16.491 15.1903 15.5631 16.1199Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-blue-500"></path><path _ngcontent-ng-c598500468="" d="M14.9415 8.60977C14.6486 8.90266 14.6486 9.37754 14.9415 9.67043C15.2344 9.96332 15.7093 9.96332 16.0022 9.67043L14.9415 8.60977ZM18.9635 6.70907C19.2564 6.41617 19.2564 5.9413 18.9635 5.64841C18.6706 5.35551 18.1958 5.35551 17.9029 5.64841L18.9635 6.70907ZM16.0944 5.41461C15.6802 5.41211 15.3424 5.74586 15.3399 6.16007C15.3374 6.57428 15.6711 6.91208 16.0853 6.91458L16.0944 5.41461ZM18.4287 6.92872C18.8429 6.93122 19.1807 6.59747 19.1832 6.18326C19.1857 5.76906 18.8519 5.43125 18.4377 5.42875L18.4287 6.92872ZM19.1832 6.17421C19.1807 5.76001 18.8429 5.42625 18.4287 5.42875C18.0145 5.43125 17.6807 5.76906 17.6832 6.18326L19.1832 6.17421ZM17.6973 8.52662C17.6998 8.94082 18.0377 9.27458 18.4519 9.27208C18.8661 9.26958 19.1998 8.93177 19.1973 8.51756L17.6973 8.52662ZM16.0022 9.67043L18.9635 6.70907L17.9029 5.64841L14.9415 8.60977L16.0022 9.67043ZM16.0853 6.91458L18.4287 6.92872L18.4377 5.42875L16.0944 5.41461L16.0853 6.91458ZM17.6832 6.18326L17.6973 8.52662L19.1973 8.51756L19.1832 6.17421L17.6832 6.18326Z" class="fill-blue-500"></path></g></svg>
             </div>
             <div class="flex flex-col">
-                <span class="font-semibold text-[#363636] text-lg">Tổng nhân viên</span>
-                <span class="text-lg">100</span>
+                <span class="font-semibold text-[#363636] text-lg">Nam</span>
+                <span class="text-lg">{{totalMale}}</span>
             </div>
         </div>
-        <div class="bg-[#f5f1ff] rounded-lg py-4 px-3 gap-3 flex items-center shadow-md shadow-gray-100">
-            <div class="bg-white py-5 w-10 h-8 flex justify-center items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
-                </svg>
+        <div class="rounded-lg py-4 px-3 gap-3 flex items-center shadow-md">
+            <div class="py-5 w-10 h-8 flex justify-center items-center">
+                <svg _ngcontent-ng-c598500468="" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-10"><g _ngcontent-ng-c598500468="" stroke-width="0"></g><g _ngcontent-ng-c598500468="" stroke-linecap="round" stroke-linejoin="round"></g><g _ngcontent-ng-c598500468="" id="SVGRepo_iconCarrier"><path _ngcontent-ng-c598500468="" fill-rule="evenodd" clip-rule="evenodd" d="M7 9.94172C7.00137 8.96443 7.29495 8.00988 7.843 7.20072C8.39448 6.38448 9.1753 5.7498 10.087 5.37672C11.9541 4.61174 14.0974 5.033 15.536 6.44772C16.5916 7.4896 17.1196 8.95291 16.9724 10.4288C16.8252 11.9047 16.0186 13.2349 14.778 14.0477C13.9477 14.571 12.9812 14.8372 12 14.8127C10.6855 14.84 9.41385 14.3448 8.464 13.4357C7.52845 12.5137 7.00119 11.2553 7 9.94172Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-pink-500"></path><path _ngcontent-ng-c598500468="" d="M12.75 14.8127C12.75 14.3985 12.4142 14.0627 12 14.0627C11.5858 14.0627 11.25 14.3985 11.25 14.8127H12.75ZM11.25 17.0007C11.25 17.415 11.5858 17.7507 12 17.7507C12.4142 17.7507 12.75 17.415 12.75 17.0007H11.25ZM14 17.7507C14.4142 17.7507 14.75 17.415 14.75 17.0007C14.75 16.5865 14.4142 16.2507 14 16.2507V17.7507ZM12 16.2507C11.5858 16.2507 11.25 16.5865 11.25 17.0007C11.25 17.415 11.5858 17.7507 12 17.7507V16.2507ZM11.25 19.0007C11.25 19.415 11.5858 19.7507 12 19.7507C12.4142 19.7507 12.75 19.415 12.75 19.0007H11.25ZM12.75 17.0007C12.75 16.5865 12.4142 16.2507 12 16.2507C11.5858 16.2507 11.25 16.5865 11.25 17.0007H12.75ZM12 17.7507C12.4142 17.7507 12.75 17.415 12.75 17.0007C12.75 16.5865 12.4142 16.2507 12 16.2507V17.7507ZM10 16.2507C9.58579 16.2507 9.25 16.5865 9.25 17.0007C9.25 17.415 9.58579 17.7507 10 17.7507V16.2507ZM11.25 14.8127V17.0007H12.75V14.8127H11.25ZM14 16.2507H12V17.7507H14V16.2507ZM12.75 19.0007V17.0007H11.25V19.0007H12.75ZM12 16.2507H10V17.7507H12V16.2507Z" class="fill-pink-500"></path></g></svg>
             </div>
             <div class="flex flex-col">
-                <span class="font-semibold text-[#363636] text-lg">Tổng nhân viên</span>
-                <span class="text-lg">100</span>
+                <span class="font-semibold text-[#363636] text-lg">Nữ</span>
+                <span class="text-lg">{{totalFemale}}</span>
             </div>
         </div>
         
@@ -50,9 +46,14 @@
     <div class="flex justify-between items-center mt-12 mb-6">
         <div class="flex items-center gap-3">
             <div class="py-[8px] px-[16px] rounded-lg border">
-                <input class="outline-none border-none" type="text" placeholder="Tên nhân viên">
+                <input [(ngModel)]="key" class="outline-none border-none" type="text" placeholder="Tên nhân viên">
             </div>
-            <div class="py-[8px] px-[16px] rounded-lg border">
+            <button (click)="search()" class="group py-[10px] flex items-center gap-[4px] px-3 border-[1.2px] hover:text-[#363636] bg-[#001b13] rounded-md font-medium leading-none text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-5 h-5 stroke-slate-200">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>               
+            </button>
+            <!-- <div class="py-[8px] px-[16px] rounded-lg border">
                 <select class="outline-none border-none" name="" id="">
                     <option value="">Chức vụ</option>
                     <option value="">Nhân viên</option>
@@ -67,7 +68,7 @@
                     <option value="">Trung</option>
                     <option value="">Nam</option>
                 </select>
-            </div>
+            </div> -->
         </div>
         <div>
             <button class="group py-[10px] flex items-center gap-[4px] px-3 border-[1.2px] hover:text-[#363636] bg-[#001b13] hover:bg-[#fff] rounded-md font-medium leading-none text-white">
@@ -80,37 +81,39 @@
     </div>
     <div class=" py-4">
         <div class="flex justify-between pb-5 items-center">
-            <span class="font-semibold">Hiển thị 30 nhân viên</span>
+            <span class="font-semibold">Hiển thị <p class="text-blue-400 inline-block">{{listEmployees.length}}</p> nhân viên</span>
             <div>
                 <!-- Short -->
                 <div class="flex font-semibold gap-2 items-center">
                     <span>Sắp xếp theo:</span>
-                    <select name="" id="">
-                        <option value="">Mới nhất</option>
-                        <option value="">Cũ nhất</option>
+                    <select class="outline-none border-none" name="" id="">
+                        <option value="">Mặc định</option>
+                        <option value="">từ A - Z</option>
+                        <option value="">từ Z - A</option>
                     </select>
                 </div>
             </div>
         </div>
-        <div class="grid-cols-5 gap-4 grid">
-            <div *ngFor="let employee of listEmployees" class="p-4 w-full rounded-lg shadow-md text-center">
+        <div class="grid-cols-4 gap-4 grid">
+            <div *ngFor="let employee of searchEmployee" class="p-4 w-full rounded-lg shadow-md text-center">
                 <div class="bg-slate-500 mb-4 w-14 h-14 mx-auto overflow-hidden rounded-full">
                     <img class="w-full h-full object-cover" src="{{employee.avatar}}" alt="">
                 </div>
-                <span class="font-semibold text-lg block">{{employee.name}}</span>
-                <span class="py-[4px] px-[9px] rounded-full text-center inline-block bg-slate-300 text-sm leading-none mb-4 font-medium">{{employee.position}}</span>
+                <span class="font-semibold text-lg mb-[6px] line-clamp-1">{{employee.name}}</span>
+                <span *ngIf="employee.position=='Leader'" class="py-[4px] px-[9px] rounded-full text-center inline-block bg-slate-300 text-sm leading-none mb-4 font-medium">{{employee.position}}</span>
+                <span *ngIf="employee.position!='Leader'" class="py-[4px] px-[9px] rounded-full text-center inline-block bg-purple-200 text-sm leading-none mb-4 font-medium">{{employee.position}}</span>
                 <div>
                     <div class="flex justify-between items-center">
-                        <span class="font-medium">Dự án:</span>
+                        <span class="font-medium">Dự án tham gia:</span>
                         <span>24</span>
                     </div>
                     <div class="flex justify-between items-center">
-                        <span class="font-medium">Khu vực:</span>
-                        <span>Bắc</span>
+                        <span class="font-medium">Giới tính:</span>
+                        <span>{{employee.genderText}}</span>
                     </div>
                 </div>
                 <button class="w-full mt-4 justify-center group py-[10px] flex items-center gap-[4px] px-3 border-[1.5px] border-gray-100 text-[#363636] hover:bg-[#001b13] rounded-md font-medium leading-none hover:text-white">
-                    <span>Xem nhân viên</span>                      
+                    <span routerLink="/nhan-vien/{{employee.id}}">Xem nhân viên</span>                      
                 </button>
             </div>
             

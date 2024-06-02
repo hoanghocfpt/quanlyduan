@@ -1,12 +1,15 @@
 <div class="py-5 px-[3%]">
     <h2 class="text-3xl font-semibold text-[#363636]">Dự án</h2>
-    <div class="grid-cols-3 gap-4 grid py-4">
+    <div class="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 grid py-4">
         <div *ngFor="let project of listProjects" routerLink="/du-an/{{project.id}}" class="group hover:border-blue-600 transition-all duration-300 p-3 border-[1.2px] rounded-xl cursor-pointer">
+            <div class="h-[160px] overflow-hidden">
+                <img class="w-full h-full object-cover" src="{{project.imageUrl}}" alt="">
+            </div>
             <span class="text-2xl font-semibold mb-2 inline-block group-hover:text-blue-600 transition-all duration-300 text-[#222]">{{project.name}}</span>
             <p class="line-clamp-2 text-[#777] mb-3">{{project.description}}</p>
             <div class="flex justify-between items-center py-2">
                 <div>
-                    <span class="font-semibold">{{project.leader}}</span>
+                    <span class="font-semibold">{{project.leader_name}}</span>
                 </div>
                 <span>{{project.dayStart | date:'dd/MM/Y'}}</span>
             </div>

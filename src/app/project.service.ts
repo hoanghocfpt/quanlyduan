@@ -1,103 +1,40 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Project } from './project';
+import { Observable } from 'rxjs';
+import { Task } from './task';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
-  private apiUrl = 'http://localhost:3000/du_an';
-  private apiUrlEmployee = 'http://localhost:3000/nhan_vien';
-  async getProjects(): Promise<any> {
-    try {
-      const response = await fetch(this.apiUrl);
-      return await response.json();
-    } catch (error) {
-      return console.error('Error fetching products:', error);
-    }
-  }
-  async getProject(id:number): Promise<any> {
-    try {
-      const response = await fetch(this.apiUrl+'/'+id);
-      return await response.json();
-    } catch (error) {
-      return console.error('Error fetching products:', error);
-    }
-  }
 
-  async getMemberOfProject(id:number):Promise<any> {
-    try {
-      const res1 = await fetch(`${this.apiUrl}/${id}`);
-      const res2 = await fetch(`${this.apiUrlEmployee}`);
-      const data1 = await res1.json(); // string (members of project)
-      const data2 = await res2.json(); // array (info members)
-      
-      let membersofproject = [];
-      
-      const memberIds = data1.members.split(',').map((idMember:any) => parseInt(idMember, 10));
-      console.log(memberIds);
-      
-      membersofproject = memberIds.map((memberId:number) => {
-        return data2.find((member: any) => member.id === memberId);
-      });
-      return membersofproject
-    } catch (error) {
-      return console.error('Error fetching products:', error);
-    }
+  constructor(private http: HttpClient) { }
+  getProjects(): Observable<Project[]> {
+    return this.http.get<Project[]>('http://localhost:3000/du_an');
   }
-
-  async getLeaderOfProject(id:number):Promise<any> {
-    try {
-      const res1 = await fetch(`${this.apiUrl}/${id}`);
-      const res2 = await fetch(`${this.apiUrlEmployee}`);
-      const data1 = await res1.json(); // string (members of project)
-      const data2 = await res2.json(); // array (info members)
-      
-      let leadersofproject = {}
-
-      leadersofproject = data2.find((member:any) => member.id === data1.leader)
-      return leadersofproject
-    } catch (error) {
-      return console.error('Error fetching products:', error);
-    }
+  // get category by id
+  getProjectById(id: any):Observable<Project> {
+    return this.http.get<Project>('http://localhost:3000/du_an/' + id);
   }
-
-  async addProject(project: any): Promise<any> {
-    try {
-      const response = await fetch(this.apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(project)
-      });
-      return await response.json();
-    } catch (error) {
-      return console.error('Error adding project:', error);
-    }
+  // get member of project
+  getMemberOfProject(id: any) {
+    return this.http.get('http://localhost:3000/nhan_vien/du_an/' +id )
   }
-
-  async updateProject(id: number, project: any): Promise<any> {
-    try {
-      const response = await fetch(`${this.apiUrl}/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(project)
-      });
-      return await response.json();
-    } catch (error) {
-      return console.error('Error updating project:', error);
-    }
+  // get tasks of project
+  getTasksOfProject(id: any):Observable<Task[]> {
+    return this.http.get<Task[]>('http://localhost:3000/task/du_an/' + id)
   }
-
-  async deleteProject(id: number): Promise<any> {
-    try {
-      const response = await fetch(`${this.apiUrl}/${id}`, {
-        method: 'DELETE'
-      });
-      return await response.json();
-    } catch (error) {
-      return console.error('Error deleting project:', error);
-    }
+  // add project
+  addProject(project: any) {
+    return this.http.post('http://localhost:3000/du_an', project);
+  }
+  // update project
+  updateProject(project: any) {
+    return this.http.put('http://localhost:3000/du_an/' + project.id, project);
+  }
+  // delete project
+  deleteProject(id: any) {
+    return this.http.delete('http://localhost:3000/du_an/' + id);
   }
 }
